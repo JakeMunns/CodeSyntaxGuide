@@ -1,12 +1,12 @@
 package teamprojectgroup3.codesyntaxguide;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class MENU extends ActionBarActivity {
+public class MENU extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class MENU extends ActionBarActivity {
         Button button12 = (Button) findViewById(R.id.button12);
         Button button13 = (Button) findViewById(R.id.button13);
         Button button14 = (Button) findViewById(R.id.button14);
+        Button button15 = (Button) findViewById(R.id.button15);
 
         //On click of a buttons listener
         View.OnClickListener listener = new View.OnClickListener() {
@@ -82,10 +83,15 @@ public class MENU extends ActionBarActivity {
                         Intent intent12 = new Intent(MENU.this, POINTERS.class);
                         startActivity(intent12);
                         break;
+                    case R.id.button13:
+                        Intent intent13 = new Intent(MENU.this, LIBRARIES.class);
+                        startActivity(intent13);
+                        break;
+                    case R.id.button15:
+                        Intent intent15 = new Intent(MENU.this, VARIABLES.class);
                 }
             }
         };
-
         //Set the listener
         button.setOnClickListener(listener);
         button2.setOnClickListener(listener);
@@ -101,6 +107,8 @@ public class MENU extends ActionBarActivity {
         button12.setOnClickListener(listener);
         button13.setOnClickListener(listener);
         button14.setOnClickListener(listener);
+        button15.setOnClickListener(listener);
+
     }
 }
 

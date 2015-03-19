@@ -1,5 +1,8 @@
 package teamprojectgroup3.codesyntaxguide;
 
+/**
+ * Created by Jake on 19/03/2015.
+ */
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,9 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import android.widget.ExpandableListView;
 
-
-public class IF extends ActionBarActivity {
-
+public class VARIABLES extends ActionBarActivity {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -20,57 +21,62 @@ public class IF extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_elseif);
+        setContentView(R.layout.activity_variables);
 
-        // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-        // preparing list data
         prepareListData();
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        // setting list adapter
         expListView.setAdapter(listAdapter);
     }
 
-    /*
-     * Preparing the list data
-     */
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
-        // Adding child data
+
         listDataHeader.add("C#");
         listDataHeader.add("C++");
         listDataHeader.add("Python");
         listDataHeader.add("Java");
 
-        // Adding child data
         List<String> csharp = new ArrayList<String>();
-        csharp.add("if(condition 1)\n{\n\t'statement 1';\n}");
+        csharp.add("Variables are declared type first, then name.\n" +
+                "values can be assigned on declaration or afterwards.\n\n" +
+                "int x;\n" +
+                "x =10\n\n" +
+                "Multiple variables can be defined on a single line\n\n" +
+                " int x, y, z;\n\n");
 
         List<String> cplusplus = new ArrayList<String>();
-        cplusplus.add("if('condition 1')\n{\n\t'statement 1';\n}");
+        cplusplus.add("Variables declared same way as C#.\n" +
+                "Must be declared at the start of application after headers are declared\n\n" +
+                "int x;\n" +
+                "x = 10;\n\n");
 
         List<String> python = new ArrayList<String>();
-        python.add("if 'condition 1':\n\t 'statement 1'");
+        python.add("Python uses Names, they are not typed,\n" +
+                " although all objects referred to by them are\n\n" +
+                "a = 1");
 
         List<String> java = new ArrayList<String>();
-        java.add("if('condition 1'){\n\t'statement 1';\n}");
+        java.add("Variables are declared the same way as C#\n\n" +
+                "int x;\n" +
+                "x = 10;\n\n" +
+                "Several variables at once\n\n" +
+                "int x,y,z;");
 
-        listDataChild.put(listDataHeader.get(0), csharp); // Header, Child data
+        listDataChild.put(listDataHeader.get(0), csharp);
         listDataChild.put(listDataHeader.get(1), cplusplus);
         listDataChild.put(listDataHeader.get(2), python);
         listDataChild.put(listDataHeader.get(3), java);
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_if, menu);
+        getMenuInflater().inflate(R.menu.menu_operators, menu);
         return true;
     }
 
@@ -88,5 +94,5 @@ public class IF extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
 
+}
